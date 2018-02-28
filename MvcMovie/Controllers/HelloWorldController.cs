@@ -22,11 +22,16 @@ namespace MvcMovie.Controllers
         }
 
         // GET: /HelloWorld/Welcome/
-        public string Welcome(string name, int num = 1)
+        public ActionResult Welcome(string name, int num = 1)
         {
             // Security Note: The code above uses HttpUtility.HtmlEncode
             // to protect the application from malicious input (namely JavaScript)
-            return HttpUtility.HtmlEncode("Hello " + name + ",num is " + num);
+            //return HttpUtility.HtmlEncode("Hello " + name + ",num is " + num);
+
+            // using ViewBag can pass parameter to the view.
+            ViewBag.Message = "Hello " +name;
+            ViewBag.NumTimes = num;
+            return View();
         }
     }
 }

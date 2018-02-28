@@ -2,9 +2,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@{ 
+@{
+    // Using ViewBag, we can pass parameters between
+    // view template and layout file.
     ViewBag.Title = "My Movie List";
 }
 
+@*
+Best practice: 
+    A view template should never perform business logic 
+        or interact with a database directly.
+*@
 <h2>Movie List</h2>
 <p>Hello from our View Template!</p>
