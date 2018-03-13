@@ -76,6 +76,11 @@ namespace MvcMovie.Controllers
         // POST: Movies/Edit/5
         // 若要免於過量張貼攻擊，請啟用想要繫結的特定屬性，如需
         // 詳細資訊，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
+
+        // overload of Edit action
+        // [HttpPost] when post request, use this method, default if "HttpGet"
+        // [ValidateAntiForgeryToken] prevent fake request
+        // [Bind] only include the model's properties to prevent over-posting
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Title,ReleaseDate,Genre,Price")] Movie movie)
